@@ -16,6 +16,11 @@ interface SignupResponse {
   username: string;
 }
 
+interface SigninCredentials {
+  username: string;
+  password: string;
+}
+
 interface SingedinResponse {
   authenticated: boolean;
   username: string;
@@ -67,6 +72,14 @@ export class AuthService {
       tap(() => {
         this.singedIn$.next(false); //if we get to this tap statement, means that post from above was succesful
         //if it was succesful it means that we are now logged out
+      })
+    );
+  }
+
+  signin(credentials: SigninCredentials) {
+    return this.http.post(`${this.rooturl}/auth/signin`, credentials).pipe(
+      tap(() => {
+        this.singedIn$.next(true);
       })
     );
   }
