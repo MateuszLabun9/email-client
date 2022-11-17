@@ -31,7 +31,7 @@ interface SingedinResponse {
 })
 export class AuthService {
   rooturl = 'https://api.angular-email.com';
-  singedIn$ = new BehaviorSubject(false); // Community convention to add $ whenever there is a variable which is observable
+  singedIn$ = new BehaviorSubject(null); // Community convention to add $ whenever there is a variable which is observable
 
   constructor(private http: HttpClient) {}
 

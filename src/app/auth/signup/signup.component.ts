@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(20),
-          Validators.pattern(/^[a-z0-9]+$/),
+          Validators.pattern(/^[a-zA-Z0-9]+$/),
         ],
         [this.uniqueUsername.validate] //anyc validator here
         //Angular is firstly runnign all sync validators, if any one fails, angular is not calling async validators. If every sync validator pass,
